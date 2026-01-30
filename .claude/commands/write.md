@@ -22,6 +22,29 @@ Use this command to create comprehensive, SEO-optimized long-form blog content.
 - **SEO Guidelines**: Apply requirements from @context/seo-guidelines.md
 - **Target Keywords**: Integrate keywords from @context/target-keywords.md naturally
 
+### Web Search for Content (NEW!)
+**IMPORTANT**: Use WebSearch to gather accurate, current information for the article:
+
+1. **Research the topic** before writing:
+   - Search `[topic] statistics 2024` for recent data
+   - Search `[topic] best practices` for authoritative guidance
+   - Search `[topic] examples` for real-world case studies
+
+2. **Verify any claims or statistics**:
+   - Search for sources to back up key claims
+   - Find original studies or reports when citing data
+   - Confirm current best practices haven't changed
+
+3. **Gather authoritative sources to link**:
+   - Search for industry publications on the topic
+   - Find research studies or surveys
+   - Identify expert quotes or opinions
+
+4. **Check competitor content**:
+   - Search the primary keyword to see what's ranking
+   - Note what sections competitors cover
+   - Identify gaps you can fill
+
 ### Content Structure
 
 #### 1. Headline (H1)

@@ -6,13 +6,33 @@ Use this command to conduct comprehensive SEO keyword research and competitive a
 `/research [topic]`
 
 ## What This Command Does
-1. Performs keyword research for your industry-related topics
-2. Analyzes top-ranking competitor content
-3. Identifies content gaps and opportunities
-4. Develops unique angle for your company perspective
-5. Creates detailed research brief for writing
+1. **Uses web search** to gather real-time data and current information
+2. Performs keyword research for your industry-related topics
+3. Analyzes top-ranking competitor content
+4. Identifies content gaps and opportunities
+5. Develops unique angle for your company perspective
+6. Creates detailed research brief for writing
 
 ## Process
+
+### Web Search Integration (NEW!)
+**IMPORTANT**: Use the WebSearch tool to gather current, accurate information:
+
+1. **Search for the topic** to understand the current landscape:
+   - `[topic] 2024` or `[topic] 2025` for recent articles
+   - `[topic] statistics` for data points
+   - `[topic] trends` for industry direction
+   - `best [topic]` for competitive research
+
+2. **Search for related questions**:
+   - `[topic] questions`
+   - `how to [topic]`
+   - `[topic] problems` or `[topic] challenges`
+
+3. **Search for authoritative sources**:
+   - `[topic] research study`
+   - `[topic] industry report`
+   - `[topic] expert opinion`
 
 ### Keyword Research
 - **Primary Keyword**: Identify main target keyword for the topic
