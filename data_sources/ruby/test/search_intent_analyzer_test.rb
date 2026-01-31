@@ -4,7 +4,7 @@ require_relative 'test_helper'
 
 class SearchIntentAnalyzerTest < Minitest::Test
   def setup
-    @analyzer = SeoMachine::SearchIntentAnalyzer.new
+    @analyzer = AgentSeo::SearchIntentAnalyzer.new
   end
 
   # Basic analysis tests

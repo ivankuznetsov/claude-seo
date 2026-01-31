@@ -3,11 +3,26 @@
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
 require 'minitest/autorun'
-require 'minitest/pride'
-require 'seo_machine'
+require 'agent_seo'
+require 'json'
 
 # Test helper methods
 module TestHelpers
+  # Load a fixture file from the fixtures directory
+  #
+  # @param filename [String] Name of the fixture file
+  # @return [String] Contents of the fixture file
+  def fixture(filename)
+    File.read(File.join(__dir__, 'fixtures', filename))
+  end
+
+  # Load and parse a JSON fixture file
+  #
+  # @param filename [String] Name of the JSON fixture file
+  # @return [Hash, Array] Parsed JSON data
+  def json_fixture(filename)
+    JSON.parse(fixture(filename))
+  end
   def sample_good_content
     <<~CONTENT
       # How to Start a Podcast in 2024: Complete Guide

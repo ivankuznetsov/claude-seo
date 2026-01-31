@@ -170,7 +170,7 @@ Comprehensive analysis using Ruby modules:
 
 ## Ruby Analysis Modules
 
-Located in `data_sources/ruby/lib/seo_machine/`:
+Located in `data_sources/ruby/lib/agent_seo/`:
 
 | Module | Purpose |
 |--------|---------|
@@ -217,10 +217,9 @@ seomachine/
 │       └── performance.md
 ├── data_sources/
 │   ├── ruby/                  # Ruby analysis modules
-│   │   ├── lib/seo_machine/   # Module source
+│   │   ├── lib/agent_seo/   # Module source
 │   │   ├── test/              # Minitest tests
 │   │   └── Gemfile
-│   ├── modules/               # Python modules (legacy)
 │   └── config/                # API credentials
 ├── context/                   # Configuration templates
 ├── topics/                    # Topic ideas

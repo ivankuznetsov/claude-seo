@@ -4,7 +4,7 @@ require_relative 'test_helper'
 
 class ContentLengthComparatorTest < Minitest::Test
   def setup
-    @comparator = SeoMachine::ContentLengthComparator.new
+    @comparator = AgentSeo::ContentLengthComparator.new
   end
 
   # Basic analysis tests
@@ -21,13 +21,8 @@ class ContentLengthComparatorTest < Minitest::Test
 
   # Statistics calculation tests (using mock data)
   def test_calculates_statistics_from_word_counts
-    mock_data = [
-      { word_count: 1500 },
-      { word_count: 2000 },
-      { word_count: 2500 },
-      { word_count: 3000 },
-      { word_count: 3500 }
-    ]
+    # calculate_statistics expects an array of integers (word counts)
+    mock_data = [1500, 2000, 2500, 3000, 3500]
 
     stats = @comparator.send(:calculate_statistics, mock_data)
 
@@ -38,7 +33,8 @@ class ContentLengthComparatorTest < Minitest::Test
   end
 
   def test_calculates_percentiles
-    mock_data = (1..100).map { |n| { word_count: n * 100 } }
+    # calculate_statistics expects an array of integers (word counts)
+    mock_data = (1..100).map { |n| n * 100 }
 
     stats = @comparator.send(:calculate_statistics, mock_data)
 
@@ -186,7 +182,8 @@ class ContentLengthComparatorTest < Minitest::Test
       { word_count: 3000 }
     ]
 
-    mock_stats = { median: 2500 }
+    # analyze_competition needs percentile_75 to be set to avoid nil comparison
+    mock_stats = { median: 2500, percentile_75: 2800 }
 
     analysis = @comparator.send(:analyze_competition, 2000, mock_competitors, mock_stats)
 
@@ -230,7 +227,8 @@ class ContentLengthComparatorTest < Minitest::Test
 
   # Edge cases
   def test_handles_single_competitor
-    mock_data = [{ word_count: 2000 }]
+    # calculate_statistics expects an array of integers (word counts)
+    mock_data = [2000]
     stats = @comparator.send(:calculate_statistics, mock_data)
 
     assert_equal 2000, stats[:min]
@@ -239,11 +237,8 @@ class ContentLengthComparatorTest < Minitest::Test
   end
 
   def test_handles_identical_word_counts
-    mock_data = [
-      { word_count: 2000 },
-      { word_count: 2000 },
-      { word_count: 2000 }
-    ]
+    # calculate_statistics expects an array of integers (word counts)
+    mock_data = [2000, 2000, 2000]
 
     stats = @comparator.send(:calculate_statistics, mock_data)
 

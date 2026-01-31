@@ -6,7 +6,7 @@ class ReadabilityScorerTest < Minitest::Test
   include TestHelpers
 
   def setup
-    @scorer = SeoMachine::ReadabilityScorer.new
+    @scorer = AgentSeo::ReadabilityScorer.new
   end
 
   # Basic analysis tests

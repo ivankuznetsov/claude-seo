@@ -48,15 +48,13 @@ data_sources/
 │   ├── ga4_config.json    # GA4 property settings
 │   ├── gsc_config.json    # Search Console property settings
 │   └── dataforseo_config.json  # DataForSEO settings
-├── modules/               # Integration modules
-│   ├── google_analytics.py
-│   ├── google_search_console.py
-│   ├── dataforseo.py
-│   └── data_aggregator.py
-├── utils/                 # Utility functions
-│   ├── auth.py           # Authentication helpers
-│   ├── cache.py          # Caching layer
-│   └── formatters.py     # Data formatting utilities
+├── ruby/                   # Ruby integration modules
+│   ├── lib/agent_seo/
+│   │   ├── google_analytics.rb
+│   │   ├── google_search_console.rb
+│   │   ├── data_for_seo.rb
+│   │   └── data_aggregator.rb
+│   └── test/              # Minitest tests
 ├── cache/                 # Cached API responses
 │   └── .gitkeep
 └── README.md             # This file
@@ -67,14 +65,8 @@ data_sources/
 ### 1. Install Dependencies
 
 ```bash
-pip install google-analytics-data google-auth-oauthlib google-auth-httplib2
-pip install google-api-python-client
-pip install requests python-dotenv pandas
-```
-
-Or use the requirements file:
-```bash
-pip install -r data_sources/requirements.txt
+cd data_sources/ruby
+bundle install
 ```
 
 ### 2. Configure API Credentials
@@ -136,61 +128,61 @@ CACHE_TTL_HOURS=24
 ### From Command Line
 
 #### Fetch Google Analytics Data
-```python
-from data_sources.modules.google_analytics import GoogleAnalytics
+```ruby
+require_relative 'ruby/lib/agent_seo/google_analytics'
 
-ga = GoogleAnalytics()
+ga = AgentSeo::GoogleAnalytics.new
 
 # Get top performing articles (last 30 days)
-top_articles = ga.get_top_pages(days=30, limit=10)
+top_articles = ga.get_top_pages(days: 30, limit: 10)
 
 # Get traffic trends for specific URL
 trends = ga.get_page_trends(
-    url="/blog/podcast-monetization-guide",
-    days=90
+  url: "/blog/podcast-monetization-guide",
+  days: 90
 )
 
 # Get conversion data
-conversions = ga.get_conversions(days=30)
+conversions = ga.get_conversions(days: 30)
 ```
 
 #### Fetch Search Console Data
-```python
-from data_sources.modules.google_search_console import GoogleSearchConsole
+```ruby
+require_relative 'ruby/lib/agent_seo/google_search_console'
 
-gsc = GoogleSearchConsole()
+gsc = AgentSeo::GoogleSearchConsole.new
 
 # Get ranking positions
-rankings = gsc.get_keyword_positions(days=30)
+rankings = gsc.get_keyword_positions(days: 30)
 
 # Find quick win opportunities (position 11-20)
-quick_wins = gsc.get_quick_wins()
+quick_wins = gsc.get_quick_wins
 
 # Get specific page performance
 page_data = gsc.get_page_performance(
-    url="/blog/podcast-monetization-guide"
+  url: "/blog/podcast-monetization-guide"
 )
 ```
 
 #### Fetch DataForSEO Data
-```python
-from data_sources.modules.dataforseo import DataForSEO
+```ruby
+require_relative 'ruby/lib/agent_seo/data_for_seo'
 
-dfs = DataForSEO()
+dfs = AgentSeo::DataForSeo.new
 
 # Get keyword rankings
 rankings = dfs.get_rankings(
-    keywords=["podcast hosting", "podcast analytics"]
+  keywords: ["podcast hosting", "podcast analytics"]
 )
 
 # Analyze competitor rankings
 competitor_data = dfs.analyze_competitor(
-    competitor_domain="competitor.com",
-    keywords=["podcast hosting"]
+  competitor_domain: "competitor.com",
+  keywords: ["podcast hosting"]
 )
 
 # Get SERP data
-serp = dfs.get_serp_data(keyword="podcast monetization")
+serp = dfs.get_serp_data(keyword: "podcast monetization")
 ```
 
 ### From Claude Code Agent
@@ -212,34 +204,34 @@ The Performance Agent automatically uses these data sources:
 
 The `DataAggregator` combines data from all sources:
 
-```python
-from data_sources.modules.data_aggregator import DataAggregator
+```ruby
+require_relative 'ruby/lib/agent_seo/data_aggregator'
 
-aggregator = DataAggregator()
+aggregator = AgentSeo::DataAggregator.new
 
 # Get comprehensive page performance
 performance = aggregator.get_page_performance(
-    url="/blog/podcast-monetization-guide"
+  url: "/blog/podcast-monetization-guide"
 )
 
 # Returns:
 # {
-#   'url': '/blog/podcast-monetization-guide',
-#   'ga4': {
-#     'pageviews': 12500,
-#     'avg_engagement_time': 245,
-#     'bounce_rate': 0.42
+#   url: '/blog/podcast-monetization-guide',
+#   ga4: {
+#     pageviews: 12500,
+#     avg_engagement_time: 245,
+#     bounce_rate: 0.42
 #   },
-#   'gsc': {
-#     'impressions': 45000,
-#     'clicks': 3200,
-#     'avg_position': 8.5,
-#     'ctr': 0.071
+#   gsc: {
+#     impressions: 45000,
+#     clicks: 3200,
+#     avg_position: 8.5,
+#     ctr: 0.071
 #   },
-#   'dataforseo': {
-#     'primary_keyword': 'podcast monetization',
-#     'position': 8,
-#     'search_volume': 2900
+#   dataforseo: {
+#     primary_keyword: 'podcast monetization',
+#     position: 8,
+#     search_volume: 2900
 #   }
 # }
 ```
@@ -325,8 +317,15 @@ The Performance Agent uses this data to:
 - For DataForSEO, check account limits and budget
 
 ### "Module not found"
-- Install dependencies: `pip install -r data_sources/requirements.txt`
-- Check Python path includes data_sources directory
+- Install dependencies: `cd data_sources/ruby && bundle install`
+- Check Ruby load path includes data_sources/ruby/lib directory
+
+## Running Tests
+
+```bash
+cd data_sources/ruby
+bundle exec ruby -Itest test/*_test.rb
+```
 
 ## Best Practices
 

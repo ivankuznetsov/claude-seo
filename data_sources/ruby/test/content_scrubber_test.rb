@@ -4,7 +4,7 @@ require_relative 'test_helper'
 
 class ContentScrubberTest < Minitest::Test
   def setup
-    @scrubber = SeoMachine::ContentScrubber.new
+    @scrubber = AgentSeo::ContentScrubber.new
   end
 
   # Basic scrubbing tests
@@ -113,7 +113,7 @@ class ContentScrubberTest < Minitest::Test
   # Class method tests
   def test_scrub_content_class_method
     content_with_zws = "Hello\u200Bworld"
-    cleaned = SeoMachine::ContentScrubber.scrub_content(content_with_zws)
+    cleaned = AgentSeo::ContentScrubber.scrub_content(content_with_zws)
     assert_kind_of String, cleaned
     refute_includes cleaned, "\u200B"
   end

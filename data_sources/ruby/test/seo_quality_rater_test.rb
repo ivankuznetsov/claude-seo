@@ -6,7 +6,7 @@ class SeoQualityRaterTest < Minitest::Test
   include TestHelpers
 
   def setup
-    @rater = SeoMachine::SeoQualityRater.new
+    @rater = AgentSeo::SeoQualityRater.new
   end
 
   # Basic rating tests
@@ -170,13 +170,13 @@ class SeoQualityRaterTest < Minitest::Test
 
   # Custom guidelines tests
   def test_custom_word_count_requirements
-    custom_rater = SeoMachine::SeoQualityRater.new(guidelines: { min_word_count: 500 })
+    custom_rater = AgentSeo::SeoQualityRater.new(guidelines: { min_word_count: 500 })
     result = custom_rater.rate(content: sample_good_content, primary_keyword: 'podcast')
     refute result[:critical_issues].any? { |i| i.downcase.include?('too short') }
   end
 
   def test_custom_link_requirements
-    custom_rater = SeoMachine::SeoQualityRater.new(guidelines: { min_internal_links: 10 })
+    custom_rater = AgentSeo::SeoQualityRater.new(guidelines: { min_internal_links: 10 })
     result = custom_rater.rate(content: sample_good_content, primary_keyword: 'podcast', internal_link_count: 5)
     assert result[:warnings].any? { |w| w.downcase.include?('internal links') }
   end
