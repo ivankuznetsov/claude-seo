@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
 module SeoMachine
-  # Search Intent Analyzer
+  # Search Intent Analyzer (Pattern-Based Fallback)
+  #
   # Determines the search intent of a query by analyzing SERP features and content patterns.
   # Classifies queries as: Informational, Navigational, Transactional, or Commercial Investigation.
+  #
+  # NOTE: For more accurate intent analysis, use the LLM-based agent at:
+  # .claude/agents/search-intent-analyzer.md
+  #
+  # This pattern-based analyzer serves as a fallback when LLM is not available.
   class SearchIntentAnalyzer
     # Search intent types
     INTENTS = %i[informational navigational transactional commercial].freeze

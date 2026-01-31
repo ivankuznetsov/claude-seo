@@ -31,11 +31,12 @@ gem 'diskcached', '~> 1.0'
 
 # Development & Testing
 group :development, :test do
-  gem 'rspec', '~> 3.12'
+  gem 'minitest', '~> 5.20'
+  gem 'minitest-pride', '~> 1.0'
   gem 'webmock', '~> 3.19'
   gem 'vcr', '~> 6.2'
   gem 'rubocop', '~> 1.57'
-  gem 'rubocop-rspec', '~> 2.25'
+  gem 'rubocop-minitest', '~> 0.35'
   gem 'simplecov', '~> 0.22'
   gem 'pry', '~> 0.14'
 end

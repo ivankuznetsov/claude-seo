@@ -39,8 +39,31 @@ Use this command to conduct comprehensive SEO keyword research and competitive a
 - **Search Volume & Difficulty**: Research estimated monthly searches and competition level
 - **Keyword Variations**: Find semantic variations and long-tail opportunities
 - **Related Questions**: Discover what people are actually asking (People Also Ask, forums, Reddit)
-- **Search Intent**: Determine if intent is informational, navigational, commercial, or transactional
+- **Search Intent**: Use the LLM-based search intent analyzer (call Task tool with subagent_type=Explore and model=haiku) to classify:
+  - **Informational**: User wants to learn (how-to, what is, guide)
+  - **Navigational**: User wants a specific site (login, website, app)
+  - **Transactional**: User ready to act (buy, pricing, download)
+  - **Commercial Investigation**: User comparing options (best, vs, review)
 - **Topic Cluster**: Identify how this topic fits into your company content clusters
+
+### Search Intent Analysis (LLM-Based)
+Use a subagent with model=haiku to analyze the primary keyword's intent:
+
+```
+Task: Analyze search intent for "[keyword]"
+
+Classify as:
+1. Informational - learning/understanding intent
+2. Navigational - finding a specific site/page
+3. Transactional - ready to purchase/act
+4. Commercial Investigation - researching before decision
+
+Provide:
+- Primary intent with confidence level
+- Secondary intent if applicable
+- Key signals detected
+- Content format recommendation
+```
 
 ### Competitive Analysis
 - **Top 10 SERP Review**: Analyze the top 10 ranking articles for target keyword
