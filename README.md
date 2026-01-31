@@ -108,27 +108,97 @@ export GSC_CREDENTIALS_PATH="path/to/credentials.json"
 # DataForSEO
 export DATAFORSEO_LOGIN="your-login"
 export DATAFORSEO_PASSWORD="your-password"
+
+# Ahrefs (via MCP server)
+export AHREFS_API_KEY="your-api-key"
 ```
 
-## Workflow Example
+## Ideal Article Writing Workflow
 
-### Creating New Content
+The complete workflow for creating publish-ready SEO content:
 
+### Step 1: Research
 ```
-/seo:research podcast monetization     # Research with web search
-/seo:write podcast monetization        # Write with analysis
-/seo:humanize drafts/podcast-*.md      # Remove AI patterns
-/seo:fact-check drafts/podcast-*.md    # Verify claims
-/seo:optimize drafts/podcast-*.md      # Final optimization
+/seo:research [topic]
 ```
+- Searches the web for current statistics, trends, and market data
+- Analyzes search intent (informational, transactional, commercial)
+- Identifies competitor content and gaps
+- Saves research brief to `research/brief-[topic]-[date].md`
 
-### Updating Existing Content
+**Output:** Research brief with keywords, intent analysis, content outline, and sources
 
+### Step 2: Write
 ```
+/seo:write [topic]
+```
+- Loads research brief and context files (brand voice, style guide)
+- Searches web for additional statistics and examples
+- Writes 2,500+ word article with proper keyword placement
+- Runs keyword, readability, and SEO quality analysis
+- Saves to `drafts/[topic]-[date].md`
+
+**Output:** Full article with meta elements, SEO checklist, and analysis scores
+
+### Step 3: Humanize
+```
+/seo:humanize drafts/[article].md
+```
+- Removes 24 AI writing patterns (inflated language, AI vocabulary, em-dashes)
+- Adds natural voice and conversational tone
+- Preserves technical accuracy and SEO optimization
+- Overwrites file with humanized version
+
+**Output:** Natural-sounding content that passes AI detection
+
+### Step 4: Fact-Check
+```
+/seo:fact-check drafts/[article].md
+```
+- Extracts all statistics, dates, and factual claims
+- Verifies each claim with web search
+- Flags incorrect or outdated information
+- Applies corrections automatically
+- Saves report to `drafts/fact-check-[topic]-[date].md`
+
+**Output:** Verified article with corrected facts and source citations
+
+### Step 5: Optimize (Optional)
+```
+/seo:optimize drafts/[article].md
+```
+- Final SEO polish and keyword optimization
+- Internal linking suggestions
+- Meta element refinement
+- Move to `published/` when ready
+
+### Quick Reference
+
+```bash
+# Full workflow - new content
+/seo:research cloud storage
+/seo:write cloud storage
+/seo:humanize drafts/cloud-storage-*.md
+/seo:fact-check drafts/cloud-storage-*.md
+
+# Update existing content
 /seo:analyze-existing https://site.com/old-article
 /seo:rewrite old article topic
-/seo:humanize rewrites/old-article-rewrite.md
+/seo:humanize rewrites/[article].md
+/seo:fact-check rewrites/[article].md
 ```
+
+### What Each Step Produces
+
+| Step | Input | Output | Time |
+|------|-------|--------|------|
+| Research | Topic | Research brief with keywords, intent, outline | 2-3 min |
+| Write | Topic + brief | 2,500+ word article with meta elements | 3-5 min |
+| Humanize | Draft article | Natural-sounding content | 1-2 min |
+| Fact-check | Article | Verified content + correction report | 2-3 min |
+| Optimize | Article | Publish-ready content | 1-2 min |
+
+**Total time:** ~10-15 minutes for a complete, fact-checked, SEO-optimized article
 
 ## Quality Standards
 
@@ -155,10 +225,15 @@ agent-seo/
 ├── .claude/
 │   ├── commands/            # Namespaced slash commands (seo:*)
 │   └── agents/              # Analysis agents
-├── data_sources/ruby/       # Ruby analysis tools
+├── data_sources/
+│   └── ruby/
+│       ├── lib/agent_seo/   # Ruby modules (keyword analyzer, readability, etc.)
+│       ├── bin/             # CLI tools (seo-keywords, seo-quality, etc.)
+│       └── test/            # Minitest test suite
 ├── context/                 # Brand configuration
 ├── drafts/                  # Work in progress
 ├── published/               # Final content
+├── rewrites/                # Updated content
 └── research/                # Research briefs
 ```
 
@@ -166,7 +241,7 @@ agent-seo/
 
 ```bash
 cd data_sources/ruby
-bundle exec ruby -Itest -e "Dir.glob('test/*_test.rb').each { |f| require_relative f }"
+bundle exec ruby -Ilib:test test/*_test.rb
 ```
 
 ## License
