@@ -4,34 +4,30 @@ A Claude Code skill for creating, analyzing, and optimizing SEO content. Feature
 
 ## Installation
 
-### Quick Install
+### One-Liner
 
 ```bash
-# Clone the repository
+git clone https://github.com/ivankuznetsov/claude-seo.git && cd claude-seo && ./install.sh && claude .
+```
+
+### Step by Step
+
+```bash
+# 1. Clone the repository
 git clone https://github.com/ivankuznetsov/claude-seo.git
 cd claude-seo
 
-# Run installer
+# 2. Run installer (installs Ruby gems, creates directories)
 ./install.sh
 
-# Open in Claude Code
+# 3. Open in Claude Code
 claude .
 ```
 
-### Manual Install
+### Requirements
 
-```bash
-# Clone and install Ruby dependencies
-git clone https://github.com/ivankuznetsov/claude-seo.git
-cd claude-seo
-cd data_sources/ruby && bundle install && cd ../..
-
-# Create directories
-mkdir -p context drafts published research rewrites topics
-
-# Open in Claude Code
-claude .
-```
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
+- Ruby 3.0+ with Bundler
 
 ## Commands
 
