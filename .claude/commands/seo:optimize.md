@@ -3,7 +3,7 @@
 Use this command to perform a final SEO optimization pass on completed articles before publishing.
 
 ## Usage
-`/optimize [article file]`
+`/seo:optimize [article file]`
 
 ## What This Command Does
 1. Performs comprehensive SEO audit of article
@@ -243,7 +243,7 @@ After optimization analysis, save report to:
 Example: `drafts/optimization-report-podcast-analytics-2025-10-15.md`
 
 ## Integration with Agents
-The `/optimize` command triggers final review from all agents:
+The `/seo:optimize` command triggers final review from all agents:
 - **content-analyzer** (NEW!): Comprehensive analysis with search intent, keyword density & clustering, content length comparison, readability score, and SEO quality rating (0-100)
 - **seo-optimizer**: Technical SEO final check
 - **meta-creator**: Best meta title/description options

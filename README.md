@@ -37,15 +37,16 @@ claude .
 
 | Command | Description |
 |---------|-------------|
-| `/research [topic]` | Keyword research with web search |
-| `/write [topic]` | Write SEO-optimized article (2000-3000+ words) |
-| `/humanize [file]` | Remove AI writing patterns |
-| `/fact-check [file]` | Verify claims using web search |
-| `/optimize [file]` | Final SEO optimization |
-| `/rewrite [topic]` | Update existing content |
-| `/analyze-existing [URL]` | Analyze content for improvements |
-| `/scrub [file]` | Remove AI watermarks |
-| `/data [type]` | Fetch GA4/GSC/DataForSEO data |
+| `/seo:research [topic]` | Keyword research with web search |
+| `/seo:write [topic]` | Write SEO-optimized article (2000-3000+ words) |
+| `/seo:humanize [file]` | Remove AI writing patterns |
+| `/seo:fact-check [file]` | Verify claims using web search |
+| `/seo:optimize [file]` | Final SEO optimization |
+| `/seo:rewrite [topic]` | Update existing content |
+| `/seo:analyze-existing [URL]` | Analyze content for improvements |
+| `/seo:scrub [file]` | Remove AI watermarks |
+| `/seo:data [type]` | Fetch GA4/GSC/DataForSEO data |
+| `/seo:performance-review` | Content performance analysis |
 
 ## Features
 
@@ -118,19 +119,19 @@ export DATAFORSEO_PASSWORD="your-password"
 ### Creating New Content
 
 ```
-/research podcast monetization     # Research with web search
-/write podcast monetization        # Write with analysis
-/humanize drafts/podcast-*.md      # Remove AI patterns
-/fact-check drafts/podcast-*.md    # Verify claims
-/optimize drafts/podcast-*.md      # Final optimization
+/seo:research podcast monetization     # Research with web search
+/seo:write podcast monetization        # Write with analysis
+/seo:humanize drafts/podcast-*.md      # Remove AI patterns
+/seo:fact-check drafts/podcast-*.md    # Verify claims
+/seo:optimize drafts/podcast-*.md      # Final optimization
 ```
 
 ### Updating Existing Content
 
 ```
-/analyze-existing https://site.com/old-article
-/rewrite old article topic
-/humanize rewrites/old-article-rewrite.md
+/seo:analyze-existing https://site.com/old-article
+/seo:rewrite old article topic
+/seo:humanize rewrites/old-article-rewrite.md
 ```
 
 ## Quality Standards
@@ -156,7 +157,7 @@ agent-seo/
 ├── SKILL.md                 # Skill definition
 ├── install.sh               # Installation script
 ├── .claude/
-│   ├── commands/            # Slash commands
+│   ├── commands/            # Namespaced slash commands (seo:*)
 │   └── agents/              # Analysis agents
 ├── data_sources/ruby/       # Ruby analysis tools
 ├── context/                 # Brand configuration

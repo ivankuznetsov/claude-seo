@@ -3,7 +3,7 @@
 Use this command to verify claims, statistics, and factual statements in content using web search and LLM-powered analysis.
 
 ## Usage
-`/fact-check [file path or paste text]`
+`/seo:fact-check [file path or paste text]`
 
 ## What This Command Does
 1. Uses **Haiku 4.5** subagent for fast claim extraction
@@ -225,20 +225,20 @@ After generating the report:
 
 ### File Management
 Save the fact-check report to:
-- **File Location**: `drafts/fact-check-[topic-slug]-[YYYY-MM-DD].md`
+- **File Location**: `drafts/seo:fact-check-[topic-slug]-[YYYY-MM-DD].md`
 
 ## Integration with Other Commands
 
-### Run After /write
+### Run After /seo:write
 ```
-/write [topic]
-/fact-check drafts/[article-file].md
+/seo:write [topic]
+/seo:fact-check drafts/[article-file].md
 ```
 
-### Run After /rewrite
+### Run After /seo:rewrite
 ```
-/rewrite [topic]
-/fact-check drafts/[article-file].md
+/seo:rewrite [topic]
+/seo:fact-check drafts/[article-file].md
 ```
 
 ## Best Practices

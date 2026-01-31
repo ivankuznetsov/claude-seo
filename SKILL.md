@@ -1,6 +1,6 @@
 ---
 name: agent-seo
-description: This skill provides a complete SEO content workflow for creating, analyzing, and optimizing long-form blog content. Use when the user wants to research topics, write SEO-optimized articles, humanize AI content, fact-check claims, or analyze content performance. Triggers on /research, /write, /humanize, /fact-check, /optimize, /rewrite, /analyze-existing, /scrub, /data, or /performance-review commands.
+description: This skill provides a complete SEO content workflow for creating, analyzing, and optimizing long-form blog content. Use when the user wants to research topics, write SEO-optimized articles, humanize AI content, fact-check claims, or analyze content performance. Triggers on /seo:research, /seo:write, /seo:humanize, /seo:fact-check, /seo:optimize, /seo:rewrite, /seo:analyze-existing, /seo:scrub, /seo:data, or /seo:performance-review commands.
 ---
 
 # Agent SEO
@@ -17,7 +17,7 @@ cd data_sources/ruby && bundle install
 
 ## Commands
 
-### `/research [topic]`
+### `/seo:research [topic]`
 Conduct keyword research and competitive analysis with web search.
 
 **Process:**
@@ -27,11 +27,11 @@ Conduct keyword research and competitive analysis with web search.
 4. Identify content gaps and opportunities
 5. Save research brief to `research/` directory
 
-### `/write [topic]`
+### `/seo:write [topic]`
 Create SEO-optimized long-form articles (2000-3000+ words).
 
 **Process:**
-1. Review research brief if available from `/research`
+1. Review research brief if available from `/seo:research`
 2. Load context files (brand voice, style guide, SEO guidelines)
 3. Web search for statistics, examples, and authoritative sources
 4. Write structured content with proper keyword placement
@@ -39,7 +39,7 @@ Create SEO-optimized long-form articles (2000-3000+ words).
 6. Apply AI humanization to remove telltale patterns
 7. Save to `drafts/` directory
 
-### `/humanize [file]`
+### `/seo:humanize [file]`
 Remove AI writing patterns for natural-sounding content.
 
 **Detects and removes:**
@@ -50,7 +50,7 @@ Remove AI writing patterns for natural-sounding content.
 - Sycophantic tone and chatbot artifacts
 - Filler phrases and excessive hedging
 
-### `/fact-check [file]`
+### `/seo:fact-check [file]`
 Verify claims and statistics using web search.
 
 **Process:**
@@ -60,24 +60,24 @@ Verify claims and statistics using web search.
 4. Generate correction suggestions with citations
 5. Save fact-check report to `drafts/`
 
-### `/optimize [file]`
+### `/seo:optimize [file]`
 Final SEO optimization before publishing.
 
-### `/rewrite [topic]`
+### `/seo:rewrite [topic]`
 Update and improve existing content.
 
-### `/analyze-existing [URL or file]`
+### `/seo:analyze-existing [URL or file]`
 Analyze content for improvement opportunities.
 
-### `/scrub [file]`
+### `/seo:scrub [file]`
 Remove AI watermarks (invisible Unicode characters, zero-width spaces).
 
-### `/data [type]`
+### `/seo:data [type]`
 Fetch live performance data from configured sources (GA4, GSC, DataForSEO).
 
 Types: `priority`, `opportunities`, `quick-wins`, `declining`, `page [url]`
 
-### `/performance-review [file or URL]`
+### `/seo:performance-review [file or URL]`
 Comprehensive content performance analysis.
 
 ## Ruby Analysis Tools
@@ -183,17 +183,17 @@ export DATAFORSEO_PASSWORD="your-password"
 
 ### Creating New Content
 ```
-/research podcast monetization     # Research with web search
-/write podcast monetization        # Write with analysis
-/humanize drafts/podcast-*.md      # Remove AI patterns
-/fact-check drafts/podcast-*.md    # Verify claims
-/optimize drafts/podcast-*.md      # Final optimization
+/seo:research podcast monetization     # Research with web search
+/seo:write podcast monetization        # Write with analysis
+/seo:humanize drafts/podcast-*.md      # Remove AI patterns
+/seo:fact-check drafts/podcast-*.md    # Verify claims
+/seo:optimize drafts/podcast-*.md      # Final optimization
 ```
 
 ### Updating Existing Content
 ```
-/analyze-existing https://site.com/old-article
-/rewrite old article topic
-/humanize rewrites/old-article-rewrite.md
-/fact-check rewrites/old-article-rewrite.md
+/seo:analyze-existing https://site.com/old-article
+/seo:rewrite old article topic
+/seo:humanize rewrites/old-article-rewrite.md
+/seo:fact-check rewrites/old-article-rewrite.md
 ```

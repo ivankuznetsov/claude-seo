@@ -3,7 +3,7 @@
 Use this command to identify and remove AI-generated writing patterns from content, making it sound more naturally human-written.
 
 ## Usage
-`/humanize [file path or paste text]`
+`/seo:humanize [file path or paste text]`
 
 ## What This Command Does
 Analyzes prose for statistical artifacts characteristic of AI-generated writing and rewrites problematic sections while preserving meaning. Based on Wikipedia's "Signs of AI writing" guide.
@@ -115,7 +115,7 @@ Check that the revised version:
 
 ## Integration with Write Command
 
-After running `/write` or `/rewrite`, you can optionally run `/humanize` to:
+After running `/seo:write` or `/seo:rewrite`, you can optionally run `/seo:humanize` to:
 1. Remove any AI patterns that slipped through
 2. Add more natural voice and personality
 3. Ensure the content passes AI detection tools

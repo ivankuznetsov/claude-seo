@@ -3,7 +3,7 @@
 Use this command to conduct comprehensive SEO keyword research and competitive analysis before writing new content.
 
 ## Usage
-`/research [topic]`
+`/seo:research [topic]`
 
 ## What This Command Does
 1. **Uses web search** to gather real-time data and current information
@@ -166,7 +166,7 @@ Example: `research/brief-podcast-editing-software-2025-10-15.md`
 
 ## Next Steps
 The research brief serves as the foundation for:
-1. Running `/write [topic]` to create the optimized article
+1. Running `/seo:write [topic]` to create the optimized article
 2. Reference material for maintaining SEO focus throughout writing
 3. Checklist to ensure all competitive gaps are addressed
 

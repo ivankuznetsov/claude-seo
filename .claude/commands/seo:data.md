@@ -3,7 +3,7 @@
 Fetch live performance data from configured data sources (GA4, GSC, DataForSEO, Ahrefs).
 
 ## Usage
-`/data [type] [arguments]`
+`/seo:data [type] [arguments]`
 
 ## Types
 
@@ -205,9 +205,9 @@ Format the data as actionable recommendations with metrics. Use tables for lists
 | Medium | create_new | Create content for "AI transcription" | Trending +85%, 2,100 impressions | New +500/month |
 
 ### Next Steps
-1. Run `/analyze-existing [top-priority-url]` for detailed analysis
-2. Use `/optimize` or `/rewrite` based on recommendation type
-3. Schedule follow-up `/data priority` in 2 weeks to measure impact
+1. Run `/seo:analyze-existing [top-priority-url]` for detailed analysis
+2. Use `/seo:optimize` or `/seo:rewrite` based on recommendation type
+3. Schedule follow-up `/seo:data priority` in 2 weeks to measure impact
 ```
 
 ### Opportunities Output
@@ -308,31 +308,31 @@ GSC alone provides most SEO insights (rankings, quick wins, CTR).
 
 ### Get Top 5 Priority Tasks
 ```
-/data priority 5
+/seo:data priority 5
 ```
 
 ### Find Quick Win Keywords
 ```
-/data quick-wins
+/seo:data quick-wins
 ```
 
 ### Analyze Specific Page
 ```
-/data page /blog/podcast-monetization-guide
+/seo:data page /blog/podcast-monetization-guide
 ```
 
 ### Get Last 60 Days of Opportunities
 ```
-/data opportunities 60
+/seo:data opportunities 60
 ```
 
 ## Integration with Other Commands
 
 Use data insights to drive content actions:
 
-1. **Quick Win Found** -> `/analyze-existing [url]` -> `/optimize [draft]`
-2. **Declining Content** -> `/analyze-existing [url]` -> `/rewrite [topic]`
-3. **Trending Topic** -> `/research [topic]` -> `/write [topic]`
+1. **Quick Win Found** -> `/seo:analyze-existing [url]` -> `/seo:optimize [draft]`
+2. **Declining Content** -> `/seo:analyze-existing [url]` -> `/seo:rewrite [topic]`
+3. **Trending Topic** -> `/seo:research [topic]` -> `/seo:write [topic]`
 4. **Low CTR Page** -> Update meta elements manually or via CMS
 
 ## Troubleshooting
