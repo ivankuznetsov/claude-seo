@@ -1,21 +1,48 @@
 # Fact-Check Command
 
-Use this command to verify claims, statistics, and factual statements in content using web search.
+Use this command to verify claims, statistics, and factual statements in content using web search and LLM-powered analysis.
 
 ## Usage
 `/fact-check [file path or paste text]`
 
 ## What This Command Does
-1. Identifies factual claims that need verification
-2. Uses web search to find authoritative sources
+1. Uses **Haiku 4.5** subagent for fast claim extraction
+2. Verifies claims with web search
 3. Confirms or flags potentially incorrect information
 4. Suggests corrections with proper source citations
 5. Ensures content meets accuracy standards
 
+## LLM-Powered Fact Checking
+
+**IMPORTANT**: Use a Haiku 4.5 subagent for efficient claim extraction and verification:
+
+```
+Task tool with model=haiku:
+
+1. Extract all factual claims from the content:
+   - Statistics and numbers
+   - Dates and historical facts
+   - Company/product claims
+   - Expert quotes
+   - Comparative statements
+
+2. For each claim, assess:
+   - Verifiability (can this be checked?)
+   - Risk level (high/medium/low impact if wrong)
+   - Search query to verify
+
+3. Return structured list of claims to verify
+```
+
+Then use WebSearch to verify each claim, and use another Haiku subagent to:
+- Compare search results against claims
+- Determine verification status
+- Suggest corrections if needed
+
 ## Process
 
-### 1. Extract Claims to Verify
-Scan the content for:
+### 1. Extract Claims to Verify (Haiku 4.5)
+Use a subagent to scan the content for:
 
 #### Statistics & Numbers
 - Percentages (e.g., "80% of podcasters...")
@@ -55,6 +82,26 @@ For each claim, use WebSearch to find:
 - `[company] announcement [fact]` - Verify company-related claims
 - `[study/report name] [key finding]` - Find original research
 - `[expert name] [quote excerpt]` - Verify quotes
+
+### 2.5 Verify with Haiku 4.5
+
+After gathering search results, use a Haiku subagent to analyze:
+
+```
+Task tool with model=haiku:
+
+Given:
+- Claim: "[the claim from the content]"
+- Search results: [summary of what was found]
+
+Determine:
+1. Verification status: VERIFIED / NEEDS UPDATE / UNVERIFIABLE / LIKELY FALSE
+2. If incorrect, what is the accurate information?
+3. Best source to cite
+4. Suggested correction text (if needed)
+```
+
+This provides fast, cost-effective verification of each claim.
 
 ### 3. Evaluate Sources
 
