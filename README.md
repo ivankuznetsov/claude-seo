@@ -7,7 +7,7 @@ A Claude Code skill for creating, analyzing, and optimizing SEO content. Feature
 ### One-Liner
 
 ```bash
-git clone https://github.com/ivankuznetsov/claude-seo.git && cd claude-seo && ./install.sh && claude .
+git clone https://github.com/ivankuznetsov/claude-seo.git && cd claude-seo && cd data_sources/ruby && bundle install && cd ../.. && claude .
 ```
 
 ### Step by Step
@@ -17,8 +17,8 @@ git clone https://github.com/ivankuznetsov/claude-seo.git && cd claude-seo && ./
 git clone https://github.com/ivankuznetsov/claude-seo.git
 cd claude-seo
 
-# 2. Run installer (installs Ruby gems, creates directories)
-./install.sh
+# 2. Install Ruby dependencies
+cd data_sources/ruby && bundle install && cd ../..
 
 # 3. Open in Claude Code
 claude .
@@ -221,7 +221,6 @@ The complete workflow for creating publish-ready SEO content:
 ```
 agent-seo/
 ├── SKILL.md                 # Skill definition
-├── install.sh               # Installation script
 ├── .claude/
 │   ├── commands/            # Namespaced slash commands (seo:*)
 │   └── agents/              # Analysis agents

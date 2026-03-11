@@ -48,7 +48,7 @@ data_sources/
 │   ├── ga4_config.json    # GA4 property settings
 │   ├── gsc_config.json    # Search Console property settings
 │   └── dataforseo_config.json  # DataForSEO settings
-├── ruby/                   # Ruby integration modules
+├── ruby/                  # Ruby integration modules
 │   ├── lib/agent_seo/
 │   │   ├── google_analytics.rb
 │   │   ├── google_search_console.rb
@@ -57,7 +57,7 @@ data_sources/
 │   └── test/              # Minitest tests
 ├── cache/                 # Cached API responses
 │   └── .gitkeep
-└── README.md             # This file
+└── README.md              # This file
 ```
 
 ## Setup

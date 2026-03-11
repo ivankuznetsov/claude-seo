@@ -69,21 +69,8 @@ rewrites/*
 # Node modules if using any tools
 node_modules/
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-
-# Distribution / packaging
-dist/
-build/
-*.egg-info/
-
-# Testing
-.coverage
-htmlcov/
-.pytest_cache/
+# Ruby
+*.gem
 
 # Secrets and sensitive data
 secrets/
@@ -102,12 +89,6 @@ data_sources/config/*_credentials.json
 data_sources/config/*_config.json
 data_sources/cache/*
 !data_sources/cache/.gitkeep
-
-# Python virtual environment
-venv/
-env/
-.venv/
-
 
 # GA4 Credentials (additional explicit entry)
 ga4-credentials.json
