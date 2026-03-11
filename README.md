@@ -4,25 +4,17 @@ A Claude Code skill for creating, analyzing, and optimizing SEO content. Feature
 
 ## Installation
 
-### One-Liner
+### From Plugin Marketplace
 
 ```bash
-git clone https://github.com/ivankuznetsov/claude-seo.git && cd claude-seo && cd data_sources/ruby && bundle install && cd ../.. && claude .
+# Add marketplace
+/plugin marketplace add ivankuznetsov/claude-seo
+
+# Install the plugin
+/plugin install agent-seo@ivankuznetsov-claude-seo
 ```
 
-### Step by Step
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/ivankuznetsov/claude-seo.git
-cd claude-seo
-
-# 2. Install Ruby dependencies
-cd data_sources/ruby && bundle install && cd ../..
-
-# 3. Open in Claude Code
-claude .
-```
+Ruby dependencies are installed automatically on first session start.
 
 ### Requirements
 
@@ -220,10 +212,14 @@ The complete workflow for creating publish-ready SEO content:
 
 ```
 agent-seo/
-├── SKILL.md                 # Skill definition
-├── .claude/
-│   ├── commands/            # Namespaced slash commands (seo:*)
-│   └── agents/              # Analysis agents
+├── .claude-plugin/
+│   ├── plugin.json          # Plugin manifest
+│   └── marketplace.json     # Marketplace catalog
+├── skills/seo/SKILL.md      # Skill definition
+├── commands/                # Namespaced slash commands (seo:*)
+├── agents/                  # Analysis agents
+├── hooks/hooks.json         # Auto-install Ruby deps on session start
+├── scripts/ensure-deps.sh   # Dependency installer
 ├── data_sources/
 │   └── ruby/
 │       ├── lib/agent_seo/   # Ruby modules (keyword analyzer, readability, etc.)

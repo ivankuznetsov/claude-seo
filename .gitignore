@@ -71,6 +71,9 @@ node_modules/
 
 # Ruby
 *.gem
+vendor/bundle/
+data_sources/ruby/vendor/
+data_sources/ruby/.bundle/
 
 # Secrets and sensitive data
 secrets/

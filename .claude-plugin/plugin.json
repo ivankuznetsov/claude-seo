@@ -1,0 +1,19 @@
+{
+  "name": "agent-seo",
+  "version": "1.0.0",
+  "description": "SEO content workflow for creating, analyzing, and optimizing long-form blog content with web search integration, AI humanization, and Ruby-based analysis tools",
+  "author": {
+    "name": "Ivan Kuznetsov"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/ivankuznetsov/claude-seo",
+  "keywords": [
+    "claude-skill",
+    "claude-code",
+    "seo",
+    "content-writing",
+    "keyword-research",
+    "ai-humanization",
+    "content-optimization"
+  ]
+}

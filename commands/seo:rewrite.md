@@ -197,13 +197,8 @@ Also save the change summary separately:
 **IMPORTANT**: Immediately after saving the rewritten article file, automatically scrub the content to remove AI watermarks:
 
 1. Run the content scrubber on the saved file:
-```python
-import sys
-sys.path.append('data_sources/modules')
-from content_scrubber import scrub_file
-
-# Scrub the file (overwrites with cleaned version)
-scrub_file('rewrites/[topic-slug]-rewrite-[YYYY-MM-DD].md', verbose=True)
+```bash
+data_sources/ruby/bin/seo-scrub --file 'rewrites/[topic-slug]-rewrite-[YYYY-MM-DD].md' --output 'rewrites/[topic-slug]-rewrite-[YYYY-MM-DD].md' --stats
 ```
 
 2. This removes:

@@ -9,10 +9,10 @@ A comprehensive SEO content workflow for creating, analyzing, and optimizing lon
 
 ## Quick Start
 
-To install dependencies:
+Dependencies are installed automatically via the SessionStart hook. If needed manually:
 
 ```bash
-cd data_sources/ruby && bundle install
+cd data_sources/ruby && bundle install --path vendor/bundle
 ```
 
 ## Commands

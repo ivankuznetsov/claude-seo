@@ -34,15 +34,10 @@ The scrubber analyzes sentence structure and context to determine the most natur
 Load the specified markdown file from the file path provided.
 
 ### 2. Run Content Scrubber
-Execute the Python content scrubber module:
+Execute the Ruby content scrubber:
 
-```python
-import sys
-sys.path.append('data_sources/modules')
-from content_scrubber import scrub_file
-
-# Scrub the file (overwrites original with cleaned version)
-scrub_file('[file_path]', verbose=True)
+```bash
+data_sources/ruby/bin/seo-scrub --file '[file_path]' --output '[file_path]' --stats
 ```
 
 ### 3. Report Results

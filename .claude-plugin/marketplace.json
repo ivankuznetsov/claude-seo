@@ -1,0 +1,36 @@
+{
+  "name": "agent-seo",
+  "owner": {
+    "name": "ivankuznetsov",
+    "email": "github@ivankuznetsov"
+  },
+  "metadata": {
+    "description": "SEO content workflow plugin for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "agent-seo",
+      "source": "./",
+      "description": "Complete SEO content workflow for creating, analyzing, and optimizing long-form blog content with web search integration, AI humanization, fact-checking, and Ruby-based analysis tools",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ivan Kuznetsov"
+      },
+      "homepage": "https://github.com/ivankuznetsov/claude-seo",
+      "repository": "https://github.com/ivankuznetsov/claude-seo",
+      "license": "MIT",
+      "keywords": [
+        "claude-skill",
+        "claude-code",
+        "seo",
+        "content-writing",
+        "keyword-research",
+        "ai-humanization",
+        "content-optimization"
+      ],
+      "category": "content",
+      "tags": ["seo", "content", "writing", "optimization", "humanization"]
+    }
+  ]
+}

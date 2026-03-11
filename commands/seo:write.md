@@ -174,13 +174,8 @@ Example: `drafts/content-marketing-strategies-2025-10-29.md`
 **IMPORTANT**: Immediately after saving the article file, automatically scrub the content to remove AI watermarks:
 
 1. Run the content scrubber on the saved file:
-```python
-import sys
-sys.path.append('data_sources/modules')
-from content_scrubber import scrub_file
-
-# Scrub the file (overwrites with cleaned version)
-scrub_file('drafts/[topic-slug]-[YYYY-MM-DD].md', verbose=True)
+```bash
+data_sources/ruby/bin/seo-scrub --file 'drafts/[topic-slug]-[YYYY-MM-DD].md' --output 'drafts/[topic-slug]-[YYYY-MM-DD].md' --stats
 ```
 
 2. This removes:
